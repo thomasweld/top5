@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Artists</h1>
+<h1>All Artists</h1>
+
+  <p>
+
+   <%= link_to new_artist_path do %>
+      <span class="glyphicon glyphicon-plus"></span> Add
+    <%end%>
+
+  </p>
 
 <table>
   <thead>
@@ -10,18 +18,20 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @artists.each do |artist| %>
-      <tr>
-        <td><%= artist.name %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    <% @artists.each_slice(2) do |artists| %>
+      <div class="row"> 
+        <% artists.each do |artist| %>
+          <div class="col-md-6">
+            <div class="well">       
+              <h2><%= artist.name %></h2>
+              <p><%= image_tag artist.avatar.url(:thumb) %></p>
+              <p><%= link_to 'Show', artist %></p>
+              <p><%= link_to 'Edit', edit_artist_path(artist) %></p>
+              <p><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+          </div>
+        <% end %>      
+    </div>
+ <% end %>
 <br>
 
-<%= link_to 'New Artist', new_artist_path %>
