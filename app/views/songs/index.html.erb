@@ -2,12 +2,11 @@
 
 <h1>All Songs</h1>
 
-<p>
-<%= link_to new_song_path  do %>
-  <span class="glyphicon glyphicon-plus"></span> Add
-  <%end%>
-
-</p>
+  <p>
+    <%= link_to new_song_path  do %>
+      <span class="glyphicon glyphicon-plus"></span> Add
+    <%end%>
+  </p>
 
   <% @songs.each_slice(2) do |songs| %>
   <div class="row">
@@ -26,12 +25,10 @@
               <span class="glyphicon glyphicon-search"></span>  
             <%end%>
 &nbsp;
-          
           <%= link_to edit_song_path(song) do %>
             <span class="glyphicon glyphicon-pencil"></span> 
           <%end%>
 &nbsp;
-
           <%= link_to song, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <span class="glyphicon glyphicon-remove"></span> 
           <%end%>
