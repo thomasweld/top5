@@ -1,0 +1,21 @@
+<h1>Top 5 Jams</h1>
+
+
+<div class="row">
+    <% @songs.each do |song| %>
+      <div class="col-md-12">
+        <div class="well">
+          <h2><%= link_to song.title, song %></h2>
+         
+          <p><% song.rating.times do %>
+            <span class="glyphicon glyphicon-star"></span>
+            <%end%>
+          </p>
+         
+          <h3><%= song.artist.name %></h3>
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
