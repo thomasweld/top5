@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'rock#roll'
 
+  get 'pics' => 'rock#pics'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
