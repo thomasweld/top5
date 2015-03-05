@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip"
 
+gem 'aws-sdk'
+
 group :development, :test do
 
 	# Use sqlite3 as the database for Active Record
