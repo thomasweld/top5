@@ -19,7 +19,9 @@
               <p><%= image_tag artist.avatar.url(:thumb) %></p>
               <p><%= link_to 'Show', artist %></p>
               <p><%= link_to 'Edit', edit_artist_path(artist) %></p>
+              <% if artist.songs.empty? %>
               <p><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <% end %>
             </div>
           </div>
         <% end %>      
